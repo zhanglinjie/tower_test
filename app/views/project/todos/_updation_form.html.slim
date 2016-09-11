@@ -1,0 +1,11 @@
+= simple_form_for(@todo_updation, as: :todo, url: [@project, @todo], html: { class: 'form-horizontal'}, wrapper: remote ? :horizontal_form_long : :horizontal_form, remote: remote, method: :put) do |f|
+  = f.error_notification :message => error_message_in_html(@todo_updation)
+
+  .form-inputs
+    = f.input :name
+    = f.input :desc, as: :text
+    = f.input :assignee_id, collection: @project.accessors, include_blank: true
+    = f.input :due_at, as: :date
+
+  .form-actions.col-xs-offset-2
+    = f.submit t("Update"), :class=>"btn btn-primary"

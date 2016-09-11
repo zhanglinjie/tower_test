@@ -1,0 +1,7 @@
+.header
+  h2 编辑#{tm('<%= singular_name%>')}
+
+= render partial: 'form', locals: { remote: false }
+
+=> link_to t('Show'), <%= singular_name%>_path(@<%= singular_name%>), :class=>"btn btn-sm btn-default"
+=> link_to t('Back'), <%= plural_name%>_path, :class=>"btn btn-sm btn-default"

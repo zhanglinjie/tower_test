@@ -1,0 +1,61 @@
+@import "font-awesome";
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import 'bootstrap-datetimepicker';
+// @import "app/*";
+
+body{
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+abbr[title]{
+  border-bottom: none;
+  color:red;
+}
+
+tr.update-active{
+  > td{
+    background-color: #3DEBEE !important;
+  }
+}
+tr.model-tr{
+  transition: 1s;
+  td{ transition: 1s; }
+}
+
+.table-bordered > thead > tr > th, .table-bordered > thead > tr > td {
+  background-color: #ffffff;
+  border-bottom-width: 1px;
+}
+
+// input
+.input-mini {
+  width: 60px;
+  max-width: 100%;
+}
+
+.input-small {
+  width: 90px;
+  max-width: 100%;
+}
+
+.input-medium {
+  width: 150px;
+  max-width: 100%;
+}
+
+.input-large {
+  width: 210px;
+  max-width: 100%;
+}
+
+.input-xlarge {
+  width: 270px;
+  max-width: 100%;
+}
+
+.input-xxlarge {
+  width: 530px;
+  max-width: 100%;
+}

@@ -1,0 +1,6 @@
+tr.model-tr.team-tr data-id=team.id
+  td= team.name
+  td
+    => link_to "切换", [team, :projects]
+    => info_btn(team, remote: true)
+    => edit_btn(team, remote: true)

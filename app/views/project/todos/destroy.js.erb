@@ -1,0 +1,3 @@
+bootbox.hideAll();
+var item = $(".todo-tr[data-id='<%= @todo.id%>']")
+item.fadeOut("fast", 'swing', function(){ item.remove() });

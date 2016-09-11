@@ -1,0 +1,73 @@
+zh-CN:
+  activerecord:
+    models:
+      member: 账号
+      team: 团队
+      project: 项目
+      todo: 任务
+      comment: 评论
+      event: 动态
+    attributes:
+      base: &base
+        created_at: 创建时间
+        updated_at: 更新时间
+        deleted_at: 删除时间
+      member:
+        <<: *base
+        email: 邮箱
+        nickname: 昵称
+        current_password: 密码
+        password: 密码
+        password_confirmation: 密码重复
+        remember_me: 记住我
+      team:
+        <<: *base
+        name: 名称
+        creator: 创建者
+      project:
+        <<: *base
+        name: 名称
+        creator: 创建者
+        desc: 简介
+      todo:
+        <<: *base
+        name: 名称
+        creator: 创建者
+        project: 项目
+        todo_list: 任务清单
+        assignee: 受理人
+        desc: 描述
+        due_at: 截止时间
+        subtodos: 检查项
+        state: 状态
+      comment:
+        <<: *base
+        content: 内容
+        commentable: 评论对象
+        author: 评论人
+      event:
+        <<: *base
+  activemodel:
+    attributes:
+      action/team_creation:
+        creator: 创建者
+        name: 团队名称
+      action/project_creation:
+        creator: 创建者
+        name: 项目名称
+        team: 团队
+      action/todo_creation:
+        creator: 创建者
+        name: 任务名称
+        desc: 任务描述
+        project: 项目
+      action/todo_updation:
+        name: 任务名称
+        desc: 任务描述
+        assignee_id: 受理人
+        due_at: 截止时间
+      action/comment_creation:
+        content: 内容
+  errors:
+    messages:
+      blank: 不能为空

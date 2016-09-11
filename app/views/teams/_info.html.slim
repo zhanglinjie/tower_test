@@ -1,0 +1,9 @@
+table.table.table-bordered
+  tr
+    td= Team.hname(:name)
+    td= @team.name
+  tr
+    td 操作
+    td
+      => edit_btn(@team, remote: remote)
+      => delete_btn(@team, remote: remote)

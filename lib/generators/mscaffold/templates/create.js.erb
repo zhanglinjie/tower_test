@@ -1,0 +1,8 @@
+bootbox.hideAll();
+$(".<%= plural_name%>-table > table > tbody > tr.no-record-tr").remove();
+var item = $("<%%= j render partial: 'table_tr', locals: { <%= singular_name%>: @<%= singular_name%>}%>");
+$(".<%= plural_name%>-table > table > tbody").append(item);
+item.addClass("update-active");
+setTimeout(function(){
+  item.removeClass("update-active");
+}, 300);

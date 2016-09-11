@@ -1,0 +1,24 @@
+h1 动态
+.form-group
+  = form_tag [current_team, :events], class: "form-inline", method: :get do
+    => select_tag :by_project, options_from_collection_for_select(current_team.projects, :id, :name, params[:by_project]), include_blank: true, class: "form-control select", prompt: "项目"
+    => select_tag :by_member, options_from_collection_for_select(current_team.members, :id, :name, params[:by_member]), include_blank: true, class: "form-control select", prompt: "成员"
+    => submit_tag "搜索", class: "btn btn-sm btn-success"
+table.table.table-bordered.events-table
+  thead
+    tr
+      th.col-xs-1= Event.hname(:created_at)
+      th.col-xs-1= Event.hname(:ancestor)
+      th.col-xs-1= Event.hname(:actor)
+      th.col-xs-1 event_action
+      th.col-xs-1 event_text
+      th.col-xs-1 event_body
+
+  tbody
+    - if @events.blank?
+      tr.no-record-tr
+        td colspan=6 没有动态
+    - else
+      = render partial: "event", collection: @events, as: :event
+button.btn.btn-block.btn-primary#event-load-more[data-perpage=50 data-fpcount=@events.count data-tillid=@events.last.id data-url=request.original_url]
+  = "加载更多"

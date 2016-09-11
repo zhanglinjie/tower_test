@@ -1,0 +1,7 @@
+h1 #{tm('project')}信息
+.form-group
+  = search_form_for @q, url: [current_team, :projects], html: {class: 'form-inline', role: 'form'}, builder: SimpleForm::FormBuilder, wrapper: :inline_form do |f|
+    => f.input :name_cont, placeholder: Project.hname(:name)
+    => f.submit "搜索", class: 'btn btn-sm btn-success'
+    => new_btn([current_team, :project], btn_size: 'btn-sm', remote: true)
+= render partial: 'table', locals: { projects: @projects }

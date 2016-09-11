@@ -1,0 +1,7 @@
+bootbox.hideAll();
+$(".project-tr[data-id='<%= @project.id%>']").replaceWith("<%= j render partial: 'table_tr', locals: { project: @project}%>");
+var item = $(".project-tr[data-id='<%= @project.id%>']");
+item.addClass("update-active");
+setTimeout(function(){
+  item.removeClass("update-active");
+}, 300);

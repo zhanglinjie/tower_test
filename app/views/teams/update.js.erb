@@ -1,0 +1,7 @@
+bootbox.hideAll();
+$(".team-tr[data-id='<%= @team.id%>']").replaceWith("<%= j render partial: 'table_tr', locals: { team: @team}%>");
+var item = $(".team-tr[data-id='<%= @team.id%>']");
+item.addClass("update-active");
+setTimeout(function(){
+  item.removeClass("update-active");
+}, 300);

@@ -1,0 +1,22 @@
+.todos-table
+  table.table.table-bordered
+    thead
+      tr
+        th.col-xs-1= sort_link(@q, :name, Todo.hname(:name))
+        th.col-xs-1= sort_link(@q, :desc, Todo.hname(:desc))
+        th.col-xs-1= sort_link(@q, :state, Todo.hname(:state))
+        th.col-xs-1= sort_link(@q, :assignee_id, Todo.hname(:assignee))
+        th.col-xs-1= sort_link(@q, :due_at, Todo.hname(:due_at))
+        th.col-xs-1= sort_link(@q, :deleted_at, Todo.hname(:deleted_at))
+        th.col-xs-1 操作
+
+    tbody
+      - if todos.blank?
+        tr.no-record-tr
+          td colspan=7 没有记录
+      - else
+
+        = render partial: "table_tr", collection: todos, as: :todo
+  = will_paginate todos, renderer: BootstrapPagination::Rails, bootstrap: 3
+
+

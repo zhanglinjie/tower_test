@@ -1,0 +1,3 @@
+bootbox.hideAll();
+var item = $(".<%= singular_name%>-tr[data-id='<%%= @<%= singular_name%>.id%>']")
+item.fadeOut("fast", 'swing', function(){ item.remove() });

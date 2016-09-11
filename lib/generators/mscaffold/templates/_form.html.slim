@@ -1,0 +1,10 @@
+= simple_form_for(@<%= singular_name %>, html: { class: 'form-horizontal'}, wrapper: remote ? :horizontal_form_long : :horizontal_form, remote: remote) do |f|
+  = f.error_notification :message => error_message_in_html(@<%= singular_name %>)
+
+  .form-inputs
+<% attributes.each do |attribute| -%>
+    = f.input :<%= attribute.name %>
+<% end -%>
+
+  .form-actions.col-xs-offset-2
+    = f.button :submit, :class=>"btn btn-primary"

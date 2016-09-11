@@ -1,0 +1,18 @@
+<h2>修改</h2>
+
+<%= simple_form_for(resource, as: resource_name, url: member_registration_path(resource_name, format: :html), html: { class: 'form-horizontal'}, format: :html) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :email, disabled: true %>
+    <%= f.input :current_password, required: true %>
+    <%= f.input :password, autocomplete: 'off', required: false %>
+    <%= f.input :password_confirmation, required: false %>
+  </div>
+
+  <div class="form-actions col-xs-offset-2">
+    <%= f.button :submit, "修改" %>
+  </div>
+<% end %>
+
+

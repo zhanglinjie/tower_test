@@ -1,0 +1,12 @@
+table.table.table-bordered
+  tr
+    td= Project.hname(:name)
+    td= @project.name
+  tr
+    td= Project.hname(:desc)
+    td= @project.desc
+  tr
+    td 操作
+    td
+      => edit_btn([current_team, @project], remote: remote)
+      => delete_btn([current_team, @project], remote: remote)

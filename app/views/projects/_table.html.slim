@@ -1,0 +1,18 @@
+.projects-table
+  table.table.table-bordered
+    thead
+      tr
+        th.col-xs-1= sort_link(@q, :name, Project.hname(:name))
+        th.col-xs-1= sort_link(@q, :desc, Project.hname(:desc))
+        th.col-xs-1 操作
+
+    tbody
+      - if projects.blank?
+        tr.no-record-tr
+          td colspan=3 没有记录
+      - else
+
+        = render partial: "table_tr", collection: projects, as: :project
+  = will_paginate projects, renderer: BootstrapPagination::Rails, bootstrap: 3
+
+

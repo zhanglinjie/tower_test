@@ -1,0 +1,9 @@
+- cache [event] do
+  tr.model-tr.event data-id=event.id id="event-#{event.id}" class="event_#{event.class.name.demodulize.underscore}"
+    td.event-created-at data-creatd-at=event.created_at
+      = event.created_at.strftime("%F %T")
+    td= event.ancestor_name
+    td= event.actor_name
+    td= event.action_desc
+    td= event_text(event)
+    td= event_body(event)

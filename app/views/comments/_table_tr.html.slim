@@ -1,0 +1,7 @@
+tr.model-tr.comment-tr data-id=comment.id  id=comment.id
+  td= comment.author_name
+  td= comment.content
+  td= comment.created_at.strftime("%F %T")
+  td
+    => edit_btn([comment], remote: true)
+    => delete_btn([comment], remote: true)

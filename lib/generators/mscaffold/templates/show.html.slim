@@ -1,0 +1,3 @@
+h2 #{tm('<%= singular_name%>')}详情
+=> link_to t('Back'), <%= plural_name%>_path, :class=>"btn btn-sm btn-default"
+= render partial: "info", locals: { remote: false }

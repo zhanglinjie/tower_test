@@ -1,0 +1,7 @@
+.header
+  h2 编辑#{tm('team')}
+
+= render partial: 'updation_form', locals: { remote: false }
+
+=> link_to t('Show'), team_path(@team), :class=>"btn btn-sm btn-default"
+=> link_to t('Back'), teams_path, :class=>"btn btn-sm btn-default"

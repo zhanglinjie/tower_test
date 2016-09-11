@@ -1,0 +1,39 @@
+h2 #{tm('todo')}详情
+table.table.table-bordered
+  tr
+    td= Todo.hname(:name)
+    td= @todo.name
+  tr
+    td= Todo.hname(:desc)
+    td= @todo.desc
+  tr
+    td= Todo.hname(:state)
+    td= @todo.state_name
+  tr
+    td= Todo.hname(:assignee)
+    td= @todo.assignee_name
+  tr
+    td= Todo.hname(:due_at)
+    td= @todo.due_at.try(:strftime, "%F %T")
+  tr
+    td= Todo.hname(:deleted_at)
+    td= @todo.deleted_at.try(:strftime, "%F %T")
+  tr
+    td 操作
+    td
+      - if @todo.deleted?
+        => link_to "恢复", [:recover, @project, @todo], method: :post, :"data-confirm" => "确定恢复?"
+      - else
+        - if @todo.can_run?
+          => link_to "运行", [:run, @project, @todo], method: :post
+        - if @todo.can_pause?
+          => link_to "暂停", [:pause, @project, @todo], method: :post
+        - if @todo.can_complete?
+          => link_to "完成", [:complete, @project, @todo], method: :post
+        - if @todo.can_reopen?
+          => link_to "重开", [:reopen, @project, @todo], method: :post
+        - if @todo.active?
+          => edit_btn([@project, @todo])
+        => delete_btn([@project, @todo])
+
+= render partial: "/comments/list", locals: { commentable: @todo }

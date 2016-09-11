@@ -1,0 +1,22 @@
+tr.model-tr.todo-tr data-id=todo.id
+  td= link_to todo.name, [@project, todo]
+  td= todo.desc
+  td= todo.state_name
+  td= todo.assignee_name
+  td= todo.due_at.try(:strftime, "%F %T")
+  td= todo.deleted_at.try(:strftime, "%F %T")
+  td
+    - if todo.deleted?
+      => link_to "恢复", [:recover, @project, todo], method: :post, remote: true, :"data-confirm" => "确定恢复?"
+    - else
+      - if todo.can_run?
+        => link_to "运行", [:run, @project, todo], method: :post, remote: true
+      - if todo.can_pause?
+        => link_to "暂停", [:pause, @project, todo], method: :post, remote: true
+      - if todo.can_complete?
+        => link_to "完成", [:complete, @project, todo], method: :post, remote: true
+      - if todo.can_reopen?
+        => link_to "重开", [:reopen, @project, todo], method: :post, remote: true
+      - if todo.active?
+        => edit_btn([@project, todo], remote: true)
+      => delete_btn([@project, todo], remote: true)

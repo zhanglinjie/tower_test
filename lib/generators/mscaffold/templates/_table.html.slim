@@ -1,0 +1,19 @@
+.<%= plural_name%>-table
+  table.table.table-bordered
+    thead
+      tr
+<% attributes.each do |attribute| -%>
+        th.col-xs-1= sort_link(@q, :<%= attribute.name%>, <%= class_name%>.hname(:<%= attribute.name%>))
+<% end -%>
+        th.col-xs-1 操作
+
+    tbody
+      - if <%= plural_name%>.blank?
+        tr.no-record-tr
+          td colspan=<%= attributes.count + 1%> 没有记录
+      - else
+
+        = render partial: "table_tr", collection: <%= plural_name%>, as: :<%= singular_name%>
+  = will_paginate <%= plural_name%>, renderer: BootstrapPagination::Rails, bootstrap: 3
+
+

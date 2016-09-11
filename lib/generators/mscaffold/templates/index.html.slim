@@ -1,0 +1,7 @@
+h1 #{tm('<%= singular_name%>')}信息
+.form-group
+  = search_form_for @q, url: <%= plural_name%>_path, html: {class: 'form-inline', role: 'form'}, builder: SimpleForm::FormBuilder, wrapper: :inline_form do |f|
+    => f.input :name_cont, placeholder: <%= class_name%>.hname(:name)
+    => f.submit "搜索", class: 'btn btn-sm btn-success'
+    => new_btn(:<%= singular_name%>, btn_size: 'btn-sm', remote: true)
+= render partial: 'table', locals: { <%= plural_name%>: @<%= plural_name%> }

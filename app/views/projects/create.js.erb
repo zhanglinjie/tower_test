@@ -1,0 +1,8 @@
+bootbox.hideAll();
+$(".projects-table > table > tbody > tr.no-record-tr").remove();
+var item = $("<%= j render partial: 'table_tr', locals: { project: @project}%>");
+$(".projects-table > table > tbody").append(item);
+item.addClass("update-active");
+setTimeout(function(){
+  item.removeClass("update-active");
+}, 300);

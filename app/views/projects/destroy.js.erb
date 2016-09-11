@@ -1,0 +1,3 @@
+bootbox.hideAll();
+var item = $(".project-tr[data-id='<%= @project.id%>']")
+item.fadeOut("fast", 'swing', function(){ item.remove() });

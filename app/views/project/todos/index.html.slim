@@ -1,0 +1,9 @@
+h1 #{tm('todo')}信息
+.form-group
+  = search_form_for @q, url: [@project, :todos], html: {class: 'form-inline', role: 'form'}, builder: SimpleForm::FormBuilder, wrapper: :inline_form do |f|
+    => f.input :name_cont, placeholder: Todo.hname(:name)
+    => f.input :assignee_id_eq, collection: @project.accessors, include_blank: true, prompt: Todo.hname(:assignee)
+    => f.input :state_eq, collection: Todo.state_select_collection, include_blank: true, prompt: Todo.hname(:state)
+    => f.submit "搜索", class: 'btn btn-sm btn-success'
+    => new_btn([@project, :todo], btn_size: 'btn-sm', remote: true)
+= render partial: 'table', locals: { todos: @todos }

@@ -1,0 +1,26 @@
+zh-CN:
+  helpers:
+    submit:
+      create: "新建 %{model}"
+      submit: "保存 %{model}"
+      update: "更新 %{model}"
+      delete: "删除 %{model}"
+
+  action:
+    edit: 编辑
+    modify: 修改
+    update: 更新
+    submit: 提交
+
+  Show: 详情
+  Edit: 编辑
+  Destroy: 删除
+  Back: 返回
+  Save: 保存
+  New: 新建
+  Create: 创建
+  Update: 更新
+
+  will_paginate:
+    next_label: 后一页
+    previous_label: 前一页

@@ -1,0 +1,21 @@
+h3 评论
+.comments-table
+  table.table.table-bordered
+    thead
+      tr
+        th.col-xs-1 = Comment.hname(:author)
+        th.col-xs-1 = Comment.hname(:content)
+        th.col-xs-1 = Comment.hname(:created_at)
+        th.col-xs-1 操作
+
+    tbody
+      - comments = commentable.comments.includes(:author)
+      - if comments.blank?
+        tr.no-record-tr
+          td colspan=4 没有记录
+      - else
+        = render partial: "/comments/table_tr", collection: comments, as: :comment
+
+= link_to "发表评论", [:new, :comment, { comment: { commentable_type: commentable.class.name, commentable_id: commentable.id }}], remote: true
+
+

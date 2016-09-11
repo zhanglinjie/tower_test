@@ -1,0 +1,7 @@
+tr.model-tr.<%= singular_name%>-tr data-id=<%= singular_name%>.id
+<% attributes.each do |attribute| -%>
+  td= <%= singular_name%>.<%= attribute.name%>
+<% end -%>
+  td
+    => info_btn(<%= singular_name%>, remote: true)
+    => edit_btn(<%= singular_name%>, remote: true)

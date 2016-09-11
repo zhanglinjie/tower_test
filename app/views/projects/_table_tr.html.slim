@@ -1,0 +1,6 @@
+tr.model-tr.project-tr data-id=project.id
+  td= link_to project.name, [project]
+  td= project.desc
+  td
+    => edit_btn([current_team, project], remote: true)
+    => delete_btn([current_team, project], remote: true)

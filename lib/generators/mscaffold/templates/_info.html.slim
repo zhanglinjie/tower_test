@@ -1,0 +1,11 @@
+table.table.table-bordered
+<% attributes.each do |attribute| -%>
+  tr
+    td= <%= class_name%>.hname(:<%= attribute.name%>)
+    td= @<%= singular_name%>.<%= attribute.name%>
+<% end -%>
+  tr
+    td 操作
+    td
+      => edit_btn(@<%= singular_name%>, remote: remote)
+      => delete_btn(@<%= singular_name%>, remote: remote)

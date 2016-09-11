@@ -1,0 +1,7 @@
+bootbox.hideAll();
+$(".comment-tr[data-id='<%= @comment.id%>']").replaceWith("<%= j render partial: 'table_tr', locals: { comment: @comment}%>");
+var item = $(".comment-tr[data-id='<%= @comment.id%>']");
+item.addClass("update-active");
+setTimeout(function(){
+  item.removeClass("update-active");
+}, 300);

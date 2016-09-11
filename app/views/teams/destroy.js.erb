@@ -1,0 +1,3 @@
+bootbox.hideAll();
+var item = $(".team-tr[data-id='<%= @team.id%>']")
+item.fadeOut("fast", 'swing', function(){ item.remove() });

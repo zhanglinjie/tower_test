@@ -1,0 +1,12 @@
+table.table.table-bordered
+  tr
+    td= Todo.hname(:name)
+    td= @todo.name
+  tr
+    td= Todo.hname(:desc)
+    td= @todo.desc
+  tr
+    td 操作
+    td
+      => edit_btn([@project, @todo], remote: remote)
+      => delete_btn([@project, @todo], remote: remote)

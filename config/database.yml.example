@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: ""
+  password: ""
+
+development:
+  <<: *default
+  database: tower_events_development
+
+test:
+  <<: *default
+  database: tower_events_test
+
+production:
+  <<: *default
+  database: tower_events_production
+  username: tower_events
+  password: <%= ENV['TOWER_EVENTS_DATABASE_PASSWORD'] %>

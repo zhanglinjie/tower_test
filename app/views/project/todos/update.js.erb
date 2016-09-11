@@ -1,0 +1,7 @@
+bootbox.hideAll();
+$(".todo-tr[data-id='<%= @todo.id%>']").replaceWith("<%= j render partial: 'table_tr', locals: { todo: @todo}%>");
+var item = $(".todo-tr[data-id='<%= @todo.id%>']");
+item.addClass("update-active");
+setTimeout(function(){
+  item.removeClass("update-active");
+}, 300);

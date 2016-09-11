@@ -1,0 +1,3 @@
+bootbox.hideAll();
+var item = $(".comment-tr[data-id='<%= @comment.id%>']")
+item.fadeOut("fast", 'swing', function(){ item.remove() });

@@ -1,0 +1,6 @@
+.header
+  h2 新建#{tm('project')}
+
+= render partial: 'creation_form', locals: { remote: false }
+
+=> link_to t('Back'), [current_team, :projects], :class=>"btn btn-sm btn-default"

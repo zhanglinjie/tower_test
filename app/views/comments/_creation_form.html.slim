@@ -1,0 +1,10 @@
+= simple_form_for(@comment_creation, as: :comment, url: [:comments], html: { class: 'form-horizontal'}, wrapper: remote ? :horizontal_form_long : :horizontal_form, remote: remote) do |f|
+  = f.error_notification :message => error_message_in_html(@comment_creation)
+
+  .form-inputs
+    = f.input :commentable_type, as: :hidden
+    = f.input :commentable_id, as: :hidden
+    = f.input :content, as: :text
+
+  .form-actions.col-xs-offset-2
+    = f.submit t("Create"), :class=>"btn btn-primary"

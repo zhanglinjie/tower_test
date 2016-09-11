@@ -1,0 +1,8 @@
+= simple_form_for(@team_creation, as: :team, url: [:teams], html: { class: 'form-horizontal'}, wrapper: remote ? :horizontal_form_long : :horizontal_form, remote: remote) do |f|
+  = f.error_notification :message => error_message_in_html(@team_creation)
+
+  .form-inputs
+    = f.input :name
+
+  .form-actions.col-xs-offset-2
+    = f.submit t("Create"), :class=>"btn btn-primary"

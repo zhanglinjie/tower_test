@@ -1,0 +1,9 @@
+= simple_form_for([current_team, @project], html: { class: 'form-horizontal'}, wrapper: remote ? :horizontal_form_long : :horizontal_form, remote: remote) do |f|
+  = f.error_notification :message => error_message_in_html(@project)
+
+  .form-inputs
+    = f.input :name
+    = f.input :desc
+
+  .form-actions.col-xs-offset-2
+    = f.button :submit, :class=>"btn btn-primary"

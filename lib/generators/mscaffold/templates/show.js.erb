@@ -1,0 +1,5 @@
+bootbox.hideAll();
+bootbox.dialog({
+  message: "<%%= j render partial: 'info', locals: { remote: true } %>",
+  title: "<%%= tm('<%= singular_name%>')%>详情"
+});

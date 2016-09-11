@@ -1,0 +1,17 @@
+.teams-table
+  table.table.table-bordered
+    thead
+      tr
+        th.col-xs-1= sort_link(@q, :name, Team.hname(:name))
+        th.col-xs-1 操作
+
+    tbody
+      - if teams.blank?
+        tr.no-record-tr
+          td colspan=2 没有记录
+      - else
+
+        = render partial: "table_tr", collection: teams, as: :team
+  = will_paginate teams, renderer: BootstrapPagination::Rails, bootstrap: 3
+
+

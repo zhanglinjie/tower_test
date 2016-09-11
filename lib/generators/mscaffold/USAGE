@@ -1,0 +1,22 @@
+Description:
+    Explain the generator
+
+Example:
+    rails generate mscaffold book name:string content:text
+
+    This will create:
+        app/controllers/books_controller.rb
+        app/views/books/_form.html.slim
+        app/views/books/_info.html.slim
+        app/views/books/_table.html.slim
+        app/views/books/_table_tr.html.slim
+        app/views/books/edit.html.slim
+        app/views/books/index.html.slim
+        app/views/books/new.html.slim
+        app/views/books/show.html.slim
+        app/views/books/create.js.erb
+        app/views/books/destroy.js.erb
+        app/views/books/edit.js.erb
+        app/views/books/new.js.erb
+        app/views/books/show.js.erb
+        app/views/books/update.js.erb
