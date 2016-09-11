@@ -56,6 +56,7 @@ zh-CN:
         creator: 创建者
         name: 项目名称
         team: 团队
+        desc: 描述
       action/todo_creation:
         creator: 创建者
         name: 任务名称
