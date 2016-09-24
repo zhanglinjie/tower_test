@@ -1,7 +1,8 @@
 class EventsController < ApplicationController
   before_action :set_team
   def index
-    @events = current_team.events.by_project(params[:by_project])
+    @events = current_team.events.includes(:actor)
+                                 .by_project(params[:by_project])
                                  .by_member(params[:by_member])
                                  .by_till_id(params[:till_id])
                                  .limit(50)
